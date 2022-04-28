@@ -1,4 +1,3 @@
-#ラズパイlチカ
 import Adafruit_PCA9685
 import time
 
