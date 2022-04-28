@@ -1,8 +1,15 @@
+#ラズパイlチカ
 import Adafruit_PCA9685
 import time
 
+
 # 設定周波数（Hz）
 SET_FREQ = 50
+
+#変数の設定
+a = 1
+b = 1
+i = 0
 
 # LED接続ポート設定
 LED_0 = 0
@@ -16,22 +23,15 @@ winker_status = 'on'
 PCA9685 = Adafruit_PCA9685.PCA9685()
 PCA9685.set_pwm_freq(SET_FREQ)
 
-try:
-	PCA9685.set_pwm(LED_0, 0, 4095)
+#点灯のみ
+#PCA9685.set_pwm(LED_0, 0, 4095)
+#PCA9685.set_pwm(LED_1, 0, 4095)
 
-	while True:
-		if winker_status == 'on':
-			PCA9685.set_pwm(LED_1, 0, 4095)
-			time.sleep(WINKER_INTERVAL)
-			winker_status = 'off'
-
-		elif winker_status == 'off':
-			PCA9685.set_pwm(LED_1, 0, 0)
-			time.sleep(WINKER_INTERVAL)
-			winker_status = 'on'
-
-except KeyboardInterrupt:
-	PCA9685.set_pwm(LED_0, 0, 0)
-	PCA9685.set_pwm(LED_1, 0, 0)
-	print("KeyboardInterrupt")
-	pass
+#だんだん明るくなる
+while i < 4090:
+    i += 2
+    print(i)
+    a += 1
+    b += 1
+    PCA9685.set_pwm(LED_0, 0, a)
+    PCA9685.set_pwm(LED_1, 0, b)
