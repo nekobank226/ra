@@ -1,0 +1,7 @@
+参考にしたURL
+
+PCA9685を使って複数のLEDをRaspberry Piで制御する方法
+https://www.handsonplus.com/electronic-works/how-to-use-pca9685-for-led/
+
+サーボドライバー「PCA9685」を使って、複数の小型サーボ（SG90等）をRaspberry Piで動かす方法
+https://www.handsonplus.com/electronic-works/how-to-use-pca9685-with-raspi/
